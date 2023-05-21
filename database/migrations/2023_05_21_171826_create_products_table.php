@@ -15,6 +15,12 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->string('title');
+            $table->text('description');
+            $table->decimal('minimum_price', 8, 2);
+            $table->string('start_datetime'); //"gggg-mm-dd
+            $table->string('end_datetime')->default(null);
             $table->timestamps();
         });
     }
